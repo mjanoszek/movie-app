@@ -1,0 +1,23 @@
+@use '../../styles/colors' as colors;
+.nav__menu {
+  &_list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    a {
+      text-decoration: none;
+      color: colors.$text;
+      font-size: 24px;
+      text-decoration: none;
+      &:hover {
+        color: colors.$white;
+      }
+      span {
+        margin-left: 16px;
+      }
+    }
+  }
+  &_item {
+    padding: 2rem;
+  }
+}

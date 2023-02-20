@@ -1,0 +1,61 @@
+@use '../../styles/colors' as colors;
+.box__posters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  &__imageContainer {
+    position: relative;
+    button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: 50px;
+      width: 32px;
+      border: none;
+      clip-path: polygon(100% 0, 100% 100%, 50% 68%, 0 100%, 0 0);
+      background-color: colors.$black;
+      cursor: pointer;
+      outline: none;
+      opacity: 0.9;
+      transition: 0.2s ease-in-out all;
+      border-top-left-radius: 3px;
+      &:hover {
+        background-color: colors.$black;
+        color: colors.$white;
+      }
+      .faPlus {
+        position: relative;
+        top: -5px;
+        color: colors.$white;
+        height: 16px;
+      }
+    }
+    &_image {
+      margin: 10px;
+      width: 150px;
+      height: 230px;
+      object-fit: cover;
+      border: 1px solid transparent;
+      transition: 0.2s ease-in-out all;
+      border-radius: 3px;
+      img {
+        border-radius: 3px;
+      }
+      &:hover {
+        border: 1px solid colors.$purple;
+      }
+    }
+  }
+  @media (min-width: 500px) {
+    .box__posters {
+      &__imageContainer {
+        &_image {
+          width: 180px;
+          height: 280px;
+        }
+      }
+    }
+  }
+}

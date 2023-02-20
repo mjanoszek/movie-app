@@ -1,0 +1,52 @@
+@use '../../styles/colors' as colors;
+.navbar {
+  &__sidebar {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 36px;
+  }
+  &__sidebar_close {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 35px 40px 20px;
+    a {
+      height: 35px;
+      width: 45px;
+      font-size: 42px;
+      color: colors.$white;
+    }
+  }
+}
+.nav__menu {
+  background-color: colors.$black;
+  height: 100vh;
+  min-width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: -100%;
+  transition: 0.7s ease-in-out;
+  text-align: center;
+  &_items {
+    list-style: none;
+    width: 100%;
+  }
+  &.active {
+    width: 100%;
+    right: 0;
+    transition: 0.7s ease-in-out;
+  }
+  button {
+    background: none;
+    border: none;
+  }
+}
+
+@media (min-width: 500px) {
+  .navbar {
+    padding-right: 1rem;
+  }
+  .nav__menu {
+    max-width: 25%;
+  }
+}

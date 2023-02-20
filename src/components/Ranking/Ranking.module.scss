@@ -1,0 +1,121 @@
+@use '../../styles/colors' as colors;
+
+.box__shows,
+.box__movies {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 10px;
+  &_show,
+  &_movie {
+    position: relative;
+    display: flex;
+    background-color: #141414;
+    margin: 0 20px 0 20px;
+    height: 230px;
+   
+  }
+  &__imageContainer {
+    position: relative;
+    button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: 50px;
+      width: 32px;
+      border: none;
+      clip-path: polygon(100% 0, 100% 100%, 50% 68%, 0 100%, 0 0);
+      background-color: colors.$light-grey;
+      cursor: pointer;
+      outline: none;
+      opacity: 0.9;
+      transition: 0.2s ease-in-out all;
+      border-top-left-radius: 3px;
+      &:hover {
+        background-color: colors.$grey;
+        color: colors.$white;
+      }
+      .faPlus {
+        position: relative;
+        top: -5px;
+        color: colors.$white;
+        height: 16px;
+      }
+    }
+    &_image {
+      margin: 10px;
+      width: 120px;
+      height: 200px;
+      object-fit: cover;
+      border: 1px solid colors.$black;
+      transition: 0.2s ease-in-out all;
+      border-radius: 3px;
+      img {
+        border-radius: 3px;
+      }
+      &:hover {
+        border: 1px solid colors.$purple;
+      }
+    }
+  }
+
+  &_data {
+    margin-top: 10px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    p {
+      color: colors.$white;
+    }
+  }
+
+  &_about {
+    display: flex;
+    gap: 10px;
+    p {
+      font-size: 14px;
+      color: colors.$sub-text;
+    }
+  }
+  &_rating {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    margin-top: 5px;
+    gap: 15px;
+    p {
+      color: colors.$white;
+    }
+    &_row {
+      display: flex;
+      gap: 5px;
+      img {
+        height: 20px;
+      }
+    }
+  }
+}
+@media (min-width: 500px) {
+  .box__movies,
+  .box__shows {
+    &_data {
+      p {
+        font-size: 16px;
+      }
+    }
+    &_image {
+      width: 120px;
+      height: 180px;
+    }
+    &_show,
+    &_movie {
+      width: 600px;
+    }
+    &__imageContainer {
+      &_image {
+        width: 140px;
+        height: 210px;
+      }
+    }
+  }
+}

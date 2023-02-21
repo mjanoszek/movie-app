@@ -18,12 +18,14 @@ function Top100Movies() {
   const [error, setError] = useState('');
 
   const location = useLocation();
+  const apiKey = import.meta.env.VITE_OMDB_API_KEY;
+
 
   const fetchMovie = async () => {
     try {
       const movieResults: MovieData[] = await Promise.all(
         Top100MoviesList.map(async (movie) => {
-          const res = await Axios.get(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=8ece671b`);
+          const res = await Axios.get(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=${apiKey}`);
           return res.data;
         })
       );

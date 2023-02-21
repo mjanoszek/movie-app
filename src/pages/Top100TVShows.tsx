@@ -14,15 +14,18 @@ interface ShowData {
 }
 
 function Top100Movies() {
-  const location = useLocation();
   const [generatedTVShow, setGeneratedTVShow] = useState<ShowData[]>([]);
   const [error, setError] = useState('');
+
+  const location = useLocation();
+  const apiKey = import.meta.env.VITE_OMDB_API_KEY;
+
 
   const fetchShow = async () => {
     try {
       const showResults: ShowData[] = await Promise.all(
         Top100TvShowsList.map(async (show) => {
-          const res = await Axios.get(`http://www.omdbapi.com/?i=${show.imdbID}&apikey=8ece671b`);
+          const res = await Axios.get(`http://www.omdbapi.com/?i=${show.imdbID}&apikey=${apiKey}`);
           return res.data;
         })
       );

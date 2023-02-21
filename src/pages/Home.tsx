@@ -10,10 +10,11 @@ function Home() {
   const [error, setError] = useState('');
 
   const location = useLocation();
-
+  const apiKey = import.meta.env.VITE_OMDB_API_KEY;
+  
   const fetchMovie = async (movie: string) => {
     try {
-      const res = await Axios.get(`https://www.omdbapi.com/?apikey=8ece671b&s=${movie}`);
+      const res = await Axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&s=${movie}`);
       setGeneratedMovie(res.data.Search);
     } catch (err) {
       setError('3RR0R');

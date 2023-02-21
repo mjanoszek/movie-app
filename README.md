@@ -1,4 +1,10 @@
 # movie-app
+
+### Technologies used:
+- Vite
+- React
+- TypeScript
+- SCSS
 ### Getting Started
 
 - Clone the repository: (**git clone https://github.com/mjanoszek/movie-app.git**)

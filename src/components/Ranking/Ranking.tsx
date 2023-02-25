@@ -74,6 +74,7 @@ function Ranking({ media, type }: MediaProps) {
               src={mediaSource.Poster === 'N/A' ? noImage : mediaSource.Poster}
               alt={mediaSource.Title}
               className={styles[`box__${type}__imageContainer_image`]}
+              loading='lazy'
             />
           </div>
           <div className={styles[`box__${type}_data`]}>
@@ -88,13 +89,13 @@ function Ranking({ media, type }: MediaProps) {
             </div>
             <div className={styles[`box__${type}_rating`]}>
               <div className={styles[`box__${type}_rating_row`]}>
-                <img src={imdbLogo} alt="imdb" />
+                <img src={imdbLogo} alt="imdb" loading='lazy'/>
                 <p>{mediaSource.imdbRating}</p>
               </div>
               <div className={styles[`box__${type}_rating_row`]}>
                 {mediaSource.Ratings && mediaSource.Ratings[1] && (
                   <>
-                    <img src={rottenLogo} alt="rottentomatoes" />
+                    <img src={rottenLogo} alt="rottentomatoes" loading='lazy' />
                     <p>{mediaSource.Ratings[1].Value}</p>
                   </>
                 )}
@@ -102,7 +103,7 @@ function Ranking({ media, type }: MediaProps) {
               <div className={styles[`box__${type}_rating_row`]}>
                 {mediaSource.Ratings && mediaSource.Ratings[2] !== undefined && (
                   <>
-                    <img src={metacriticLogo} alt="metacritic" />
+                    <img src={metacriticLogo} alt="metacritic"loading='lazy'  />
                     <p>{mediaSource.Ratings[2].Value.slice(0, 2)}</p>
                   </>
                 )}

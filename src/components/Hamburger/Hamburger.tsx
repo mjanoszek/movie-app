@@ -13,8 +13,6 @@ function Hamburger({ currentPage = '' }: HamburgerProps) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 
-  // Hide sidebar when click outside
-
   return (
     <>
       <div className={styles.navbar__sidebar}>

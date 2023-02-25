@@ -39,9 +39,9 @@ interface Poster {
 function Posters({ posters, isWatchList = false }: PosterProps) {
   const [postersToDisplay, setPostersToDisplay] = useState(posters);
   const [favorites, setFavorites] = useState<MediaProps['media'][0][]>(
-    JSON.parse(localStorage.getItem('favorites') || '[]')
+    JSON.parse(localStorage.getItem('favorites') || '[]') || []
   );
-
+  
   const deleteFromWatchList = (imdbID: string) => {
     setFavorites(favorites.filter((fav) => fav.imdbID !== imdbID));
     setPostersToDisplay(postersToDisplay.filter((poster) => poster.imdbID !== imdbID));
@@ -92,6 +92,7 @@ function Posters({ posters, isWatchList = false }: PosterProps) {
                   src={poster.Poster === 'N/A' ? noImage : poster.Poster}
                   alt={poster.Title}
                   className={styles.box__posters__imageContainer_image}
+                  loading='lazy'
                 />
               </div>
             </div>
@@ -109,6 +110,7 @@ function Posters({ posters, isWatchList = false }: PosterProps) {
                   src={poster.Poster === 'N/A' ? noImage : poster.Poster}
                   alt={poster.Title}
                   className={styles.box__posters__imageContainer_image}
+                  loading='lazy'
                 />
               </div>
             </div>

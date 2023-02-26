@@ -39,22 +39,26 @@ interface Poster {
 function Posters({ posters, isWatchList = false }: PosterProps) {
   const [postersToDisplay, setPostersToDisplay] = useState(posters);
   const [favorites, setFavorites] = useState<MediaProps['media'][0][]>(
-    JSON.parse(localStorage.getItem('favorites') || '[]') || []
+    JSON.parse(localStorage.getItem('favorites') || '[]') || [],
   );
-  
+
   const deleteFromWatchList = (imdbID: string) => {
     setFavorites(favorites.filter((fav) => fav.imdbID !== imdbID));
-    setPostersToDisplay(postersToDisplay.filter((poster) => poster.imdbID !== imdbID));
+    setPostersToDisplay(
+      postersToDisplay.filter((poster) => poster.imdbID !== imdbID),
+    );
   };
 
   const addToFavorite = (mediaSource: MediaProps['media'][0]) => {
     const isDuplicated = favorites.some(
-      (favoriteSource) => favoriteSource.imdbID === mediaSource.imdbID
+      (favoriteSource) => favoriteSource.imdbID === mediaSource.imdbID,
     );
     if (!isDuplicated) {
       setFavorites([...favorites, mediaSource]);
     } else {
-      setFavorites(favorites.filter((fav) => fav.imdbID !== mediaSource.imdbID));
+      setFavorites(
+        favorites.filter((fav) => fav.imdbID !== mediaSource.imdbID),
+      );
     }
   };
 
@@ -69,7 +73,7 @@ function Posters({ posters, isWatchList = false }: PosterProps) {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          color: '#eaeaea'
+          color: '#eaeaea',
         }}
       >
         Type Movie or Show
@@ -80,47 +84,58 @@ function Posters({ posters, isWatchList = false }: PosterProps) {
     <div className={styles.box__posters}>
       {isWatchList
         ? postersToDisplay.map((poster: Poster) => (
-            <div className={styles.box__posters_poster} key={poster.imdbID}>
-              <div className={styles.box__posters__imageContainer}>
-                <button type="button" onClick={() => deleteFromWatchList(poster.imdbID)}>
-                  <FontAwesomeIcon
-                    icon={favorites.some((fav) => fav.imdbID === poster.imdbID) ? faMinus : faPlus}
-                    className={styles.faPlus}
-                  />
-                </button>
-                <img
-                  src={poster.Poster === 'N/A' ? noImage : poster.Poster}
-                  alt={poster.Title}
-                  className={styles.box__posters__imageContainer_image}
-                  loading='lazy'
+          <div className={styles.box__posters_poster} key={poster.imdbID}>
+            <div className={styles.box__posters__imageContainer}>
+              <button
+                type="button"
+                onClick={() => deleteFromWatchList(poster.imdbID)}
+              >
+                <FontAwesomeIcon
+                  icon={
+                    favorites.some((fav) => fav.imdbID === poster.imdbID)
+                      ? faMinus
+                      : faPlus
+                  }
+                  className={styles.faPlus}
                 />
-              </div>
+              </button>
+              <img
+                src={poster.Poster === 'N/A' ? noImage : poster.Poster}
+                alt={poster.Title}
+                className={styles.box__posters__imageContainer_image}
+                loading="lazy"
+              />
             </div>
-          ))
+          </div>
+        ))
         : posters.map((poster: Poster) => (
-            <div className={styles.box__posters_poster} key={poster.imdbID}>
-              <div className={styles.box__posters__imageContainer}>
-                <button type="button" onClick={() => addToFavorite(poster)}>
-                  <FontAwesomeIcon
-                    icon={favorites.some((fav) => fav.imdbID === poster.imdbID) ? faMinus : faPlus}
-                    className={styles.faPlus}
-                  />
-                </button>
-                <img
-                  src={poster.Poster === 'N/A' ? noImage : poster.Poster}
-                  alt={poster.Title}
-                  className={styles.box__posters__imageContainer_image}
-                  loading='lazy'
+          <div className={styles.box__posters_poster} key={poster.imdbID}>
+            <div className={styles.box__posters__imageContainer}>
+              <button type="button" onClick={() => addToFavorite(poster)}>
+                <FontAwesomeIcon
+                  icon={
+                    favorites.some((fav) => fav.imdbID === poster.imdbID)
+                      ? faMinus
+                      : faPlus
+                  }
+                  className={styles.faPlus}
                 />
-              </div>
+              </button>
+              <img
+                src={poster.Poster === 'N/A' ? noImage : poster.Poster}
+                alt={poster.Title}
+                className={styles.box__posters__imageContainer_image}
+                loading="lazy"
+              />
             </div>
-          ))}
+          </div>
+        ))}
     </div>
   );
 }
 
 Posters.defaultProps = {
-  isWatchList: false
+  isWatchList: false,
 };
 
 export default Posters;

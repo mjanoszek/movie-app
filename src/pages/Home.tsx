@@ -19,7 +19,6 @@ function Home() {
     try {
       const res = await Axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&s=${movie}`);
       setGeneratedMovie(res.data.Search);
-      console.log(generatedMovie)
     } catch (err) {
       setError('3RR0R');
     }

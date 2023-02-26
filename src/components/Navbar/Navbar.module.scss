@@ -19,8 +19,8 @@
     img {
       height: 35px;
       width: 45px;
-      filter: invert(93%) sepia(0%) saturate(7500%) hue-rotate(118deg) brightness(107%)
-        contrast(110%);
+      filter: invert(93%) sepia(0%) saturate(7500%) hue-rotate(118deg)
+        brightness(107%) contrast(110%);
     }
     h1 {
       text-transform: uppercase;
@@ -69,7 +69,7 @@
           text-decoration: none;
           text-transform: uppercase;
           font-size: 18px;
-          transition: .1s ease-in-out all;
+          transition: 0.1s ease-in-out all;
           &:hover {
             color: colors.$white;
           }

@@ -13,10 +13,10 @@
     background-color: #141414;
     margin: 0 20px 0 20px;
     height: 230px;
-   
   }
   &__imageContainer {
     position: relative;
+
     button {
       position: absolute;
       top: 10px;
@@ -44,14 +44,14 @@
     }
     &_image {
       margin: 10px;
-      width: 120px;
-      height: 200px;
       object-fit: cover;
       border: 1px solid colors.$black;
       transition: 0.2s ease-in-out all;
       border-radius: 3px;
       img {
         border-radius: 3px;
+        width: 120px;
+        height: 200px;
       }
       &:hover {
         border: 1px solid colors.$purple;
@@ -86,12 +86,13 @@
     p {
       color: colors.$white;
     }
+    img {
+      height: 20px;
+      width: fit-content;
+    }
     &_row {
       display: flex;
       gap: 5px;
-      img {
-        height: 20px;
-      }
     }
   }
 }

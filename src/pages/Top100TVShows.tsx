@@ -27,7 +27,7 @@ function Top100Movies() {
         Top100TvShowsList.map(async (show) => {
           const res = await Axios.get(`http://www.omdbapi.com/?i=${show.imdbID}&apikey=${apiKey}`);
           return res.data;
-        })
+        }),
       );
       setGeneratedTVShow(showResults);
     } catch (err) {

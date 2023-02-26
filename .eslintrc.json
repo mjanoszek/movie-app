@@ -1,22 +1,35 @@
 {
   "env": {
     "browser": true,
-    "es6": true
+    "es2021": true
   },
-  "extends": ["airbnb", "airbnb-typescript", "plugin:@typescript-eslint/recommended", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb-typescript"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "overrides": [],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 2018,
+    "ecmaVersion": "latest",
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "@typescript-eslint", "import"],
   "rules": {
-    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-    "import/no-default-export": "off"
+    "no-console": "warn",
+    "no-debugger": "warn",
+    "react/prop-types": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "indent": ["error", 2],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"]
   }
 }

@@ -27,7 +27,7 @@ function Top100Movies() {
         Top100MoviesList.map(async (movie) => {
           const res = await Axios.get(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=${apiKey}`);
           return res.data;
-        })
+        }),
       );
       setGeneratedMovie(movieResults);
     } catch (err) {

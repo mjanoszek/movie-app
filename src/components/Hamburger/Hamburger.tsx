@@ -35,7 +35,7 @@ function Hamburger({ currentPage = '' }: HamburgerProps) {
 }
 
 Hamburger.defaultProps = {
-  currentPage: ''
+  currentPage: '',
 };
 
 export default Hamburger;

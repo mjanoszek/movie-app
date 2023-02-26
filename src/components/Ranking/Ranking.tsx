@@ -26,7 +26,7 @@ interface MediaProps {
 
 function Ranking({ media, type }: MediaProps) {
   const [favorites, setFavorites] = useState<MediaProps['media'][0][]>(
-    JSON.parse(localStorage.getItem('favorites') || '[]')
+    JSON.parse(localStorage.getItem('favorites') || '[]'),
   );
 
   useEffect(() => {
@@ -35,12 +35,14 @@ function Ranking({ media, type }: MediaProps) {
 
   const addToFavorite = (mediaSource: MediaProps['media'][0]) => {
     const isDuplicated = favorites.some(
-      (favoriteSource) => favoriteSource.imdbID === mediaSource.imdbID
+      (favoriteSource) => favoriteSource.imdbID === mediaSource.imdbID,
     );
     if (!isDuplicated) {
       setFavorites([...favorites, mediaSource]);
     } else {
-      setFavorites(favorites.filter((fav) => fav.imdbID !== mediaSource.imdbID));
+      setFavorites(
+        favorites.filter((fav) => fav.imdbID !== mediaSource.imdbID),
+      );
     }
   };
 
@@ -51,7 +53,7 @@ function Ranking({ media, type }: MediaProps) {
           color: '#eaeaea',
           textAlign: 'center',
           marginTop: '30px',
-          fontSize: '24px'
+          fontSize: '24px',
         }}
       >
         Loading...
@@ -62,11 +64,15 @@ function Ranking({ media, type }: MediaProps) {
   return (
     <div className={styles[`box__${type}`]}>
       {media.map((mediaSource, indx) => (
-        <div className={styles[`box__${type}_${type.slice(0, -1)}`]}>
+        <div key={mediaSource.imdbID} className={styles[`box__${type}_${type.slice(0, -1)}`]}>
           <div className={styles[`box__${type}__imageContainer`]}>
-            <button type="button" onClick={() => addToFavorite(mediaSource)}>
+            <button type="button" onClick={() => addToFavorite(mediaSource)} aria-label="Add to Watchlist">
               <FontAwesomeIcon
-                icon={favorites.some((fav) => fav.imdbID === mediaSource.imdbID) ? faMinus : faPlus}
+                icon={
+                  favorites.some((fav) => fav.imdbID === mediaSource.imdbID)
+                    ? faMinus
+                    : faPlus
+                }
                 className={styles.faPlus}
               />
             </button>
@@ -74,7 +80,6 @@ function Ranking({ media, type }: MediaProps) {
               src={mediaSource.Poster === 'N/A' ? noImage : mediaSource.Poster}
               alt={mediaSource.Title}
               className={styles[`box__${type}__imageContainer_image`]}
-              loading='lazy'
             />
           </div>
           <div className={styles[`box__${type}_data`]}>
@@ -89,21 +94,26 @@ function Ranking({ media, type }: MediaProps) {
             </div>
             <div className={styles[`box__${type}_rating`]}>
               <div className={styles[`box__${type}_rating_row`]}>
-                <img src={imdbLogo} alt="imdb" loading='lazy'/>
+                <img src={imdbLogo} alt="imdb" loading="lazy" />
                 <p>{mediaSource.imdbRating}</p>
               </div>
               <div className={styles[`box__${type}_rating_row`]}>
                 {mediaSource.Ratings && mediaSource.Ratings[1] && (
                   <>
-                    <img src={rottenLogo} alt="rottentomatoes" loading='lazy' />
+                    <img src={rottenLogo} alt="rottentomatoes" loading="lazy" />
                     <p>{mediaSource.Ratings[1].Value}</p>
                   </>
                 )}
               </div>
               <div className={styles[`box__${type}_rating_row`]}>
-                {mediaSource.Ratings && mediaSource.Ratings[2] !== undefined && (
+                {mediaSource.Ratings &&
+                  mediaSource.Ratings[2] !== undefined && (
                   <>
-                    <img src={metacriticLogo} alt="metacritic"loading='lazy'  />
+                    <img
+                      src={metacriticLogo}
+                      alt="metacritic"
+                      loading="lazy"
+                    />
                     <p>{mediaSource.Ratings[2].Value.slice(0, 2)}</p>
                   </>
                 )}

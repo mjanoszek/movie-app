@@ -14,7 +14,7 @@ interface SearchboxProps {
 function Navbar({
   withSearchBar = false,
   setSearchMovie = () => {},
-  currentPage = ''
+  currentPage = '',
 }: SearchboxProps) {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const location = useLocation();
@@ -57,7 +57,7 @@ function Navbar({
 
 Navbar.defaultProps = {
   withSearchBar: false,
-  setSearchMovie: () => {}
+  setSearchMovie: () => {},
 };
 
 export default Navbar;

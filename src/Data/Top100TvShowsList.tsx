@@ -102,5 +102,6 @@ export const Top100TvShowsList: Top100TvShowsProps[] = [
   { Title: 'Mad Men', imdbID: 'tt0804503' },
   { Title: 'Vinland Saga', imdbID: 'tt10233448' },
   { Title: 'Gullak', imdbID: 'tt10530900' },
+  { Title: 'The Crown', imdbID: 'tt4786824' },
 ];
 export default Top100TvShowsList;

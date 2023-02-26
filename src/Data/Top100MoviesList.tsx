@@ -3,7 +3,6 @@ interface Top100MoviesProps {
   imdbID: string;
 }
 export const Top100MoviesList: Top100MoviesProps[] = [
-  { Title: 'The Shawshank Redemption', imdbID: 'tt0111161' },
   { Title: 'The Godfather', imdbID: 'tt0068646' },
   { Title: 'The Dark Knight', imdbID: 'tt0468569' },
   { Title: 'The Godfather Part II', imdbID: 'tt0071562' },
@@ -38,7 +37,6 @@ export const Top100MoviesList: Top100MoviesProps[] = [
   { Title: 'The Pianist', imdbID: 'tt0253474' },
   { Title: 'Léon', imdbID: 'tt0110413' },
   { Title: 'Gisaengchung', imdbID: 'tt6751668' },
-  { Title: 'The Lion King', imdbID: 'tt0110357' },
   { Title: 'The Lion King', imdbID: 'tt0110357' },
   { Title: 'Gladiator', imdbID: 'tt0172495' },
   { Title: 'American History X', imdbID: 'tt0120586' },
@@ -106,5 +104,7 @@ export const Top100MoviesList: Top100MoviesProps[] = [
   { Title: 'The Apartment', imdbID: 'tt0053604' },
   { Title: 'Scarface', imdbID: 'tt0086250' },
   { Title: 'Ikiru', imdbID: 'tt0044741' },
+  { Title: 'Greenbook', imdbID: 'tt6966692' },
+  { Title: 'The Wolf of Wall Street', imdbID: 'tt0993846' },
 ];
 export default Top100MoviesList;

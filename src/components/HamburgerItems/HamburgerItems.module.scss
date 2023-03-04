@@ -7,7 +7,7 @@
     a {
       text-decoration: none;
       color: colors.$text;
-      font-size: 24px;
+      font-size: 20px;
       text-decoration: none;
       &:hover {
         color: colors.$white;
@@ -19,5 +19,18 @@
   }
   &_item {
     padding: 2rem;
+  }
+}
+
+@media (min-width: 375px) {
+  .nav__menu {
+    &_list {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      a {
+        font-size: 24px;
+      }
+    }
   }
 }

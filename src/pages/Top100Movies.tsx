@@ -25,7 +25,7 @@ function Top100Movies() {
     try {
       const movieResults: MovieData[] = await Promise.all(
         Top100MoviesList.map(async (movie) => {
-          const res = await Axios.get(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=${apiKey}`);
+          const res = await Axios.get(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=${apiKey}`);
           return res.data;
         }),
       );

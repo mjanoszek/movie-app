@@ -7,15 +7,6 @@ import compression from 'vite-plugin-compression';
 export default defineConfig({
   plugins: [
     react(),
-    compression({
-      algorithm: 'gzip',
-      ext: '.gz',
-      deleteOriginFile: true,
-    }),
-    compression({
-      algorithm: 'brotliCompress',
-      ext: '.br',
-      deleteOriginFile: true,
-    }),
+    compression(),
   ],
 });

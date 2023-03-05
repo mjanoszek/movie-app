@@ -16,10 +16,6 @@ interface MediaProps {
     Runtime?: string;
     Genre?: string;
     imdbRating?: string;
-    Ratings?: Array<{
-      Source: string;
-      Value: string;
-    }>;
   }>;
   type: string;
 }

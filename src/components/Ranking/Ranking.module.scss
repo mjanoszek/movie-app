@@ -11,12 +11,17 @@
     position: relative;
     display: flex;
     background-color: #141414;
-    margin: 0 20px 0 20px;
-    height: 230px;
+    margin: 0 10px 0 10px;
+    height: 200px;
   }
   &__imageContainer {
     position: relative;
-
+    display: flex;
+    align-items: center;
+    img {
+      height: 180px;
+      width: 100px;
+    }
     button {
       position: absolute;
       top: 10px;
@@ -62,41 +67,52 @@
   &_data {
     margin-top: 10px;
     gap: 10px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     p {
+      font-size: 14px;
       color: colors.$white;
     }
   }
 
   &_about {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     p {
-      font-size: 14px;
+      font-size: 10px;
       color: colors.$sub-text;
     }
   }
   &_rating {
     display: flex;
-    justify-content: flex-end;
     flex-direction: column;
     margin-top: 5px;
-    gap: 15px;
-    p {
-      color: colors.$white;
-    }
-    img {
-      height: 20px;
-      width: fit-content;
-    }
-    &_row {
+    gap: 5px;
+    &__row {
       display: flex;
+      justify-content: space-around;
+    }
+    &__column {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    &__rate {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       gap: 5px;
+      img {
+        height: 20px;
+        width: auto;
+      }
     }
   }
 }
-@media (min-width: 500px) {
+@media (min-width: 800px) {
   .box__movies,
   .box__shows {
     &_data {
@@ -110,12 +126,31 @@
     }
     &_show,
     &_movie {
+      height: 230px;
       width: 600px;
     }
     &__imageContainer {
-      &_image {
+      img {
         width: 140px;
         height: 210px;
+      }
+    }
+
+    &__rating {
+      display: flex;
+      flex-direction: column;
+      &__row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+      &__rate {
+        display: flex;
+        flex-direction: column;
+        img {
+          height: 50px;
+          width: auto;
+        }
       }
     }
   }

@@ -34,8 +34,8 @@
     }
     &_image {
       margin: 10px;
-      width: 150px;
-      height: 230px;
+      width: 120px;
+      height: 200px;
       object-fit: cover;
       border: 1px solid transparent;
       transition: 0.2s ease-in-out all;
@@ -48,7 +48,7 @@
       }
     }
   }
-  @media (min-width: 500px) {
+  @media (min-width: 800px) {
     .box__posters {
       &__imageContainer {
         &_image {

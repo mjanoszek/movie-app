@@ -16,6 +16,10 @@ interface MediaProps {
     Runtime?: string;
     Genre?: string;
     imdbRating?: string;
+    Ratings?: Array<{
+      Source: string;
+      Value: string;
+    }>;
   }>;
   type: string;
 }
@@ -58,6 +62,7 @@ function Ranking({ media, type }: MediaProps) {
   }
 
   return (
+    
     <div className={styles[`box__${type}`]}>
       {media.map((mediaSource, indx) => (
         <div key={mediaSource.imdbID} className={styles[`box__${type}_${type.slice(0, -1)}`]}>
@@ -88,31 +93,44 @@ function Ranking({ media, type }: MediaProps) {
               <p>|</p>
               <p>{mediaSource.Genre}</p>
             </div>
+            
+
+
+            
             <div className={styles[`box__${type}_rating`]}>
-              <div className={styles[`box__${type}_rating_row`]}>
-                <img src={imdbLogo} alt="imdb" loading="lazy" />
-                <p>{mediaSource.imdbRating}</p>
-              </div>
-              <div className={styles[`box__${type}_rating_row`]}>
-                {mediaSource.Ratings && mediaSource.Ratings[1] && (
-                  <>
-                    <img src={rottenLogo} alt="rottentomatoes" loading="lazy" />
-                    <p>{mediaSource.Ratings[1].Value}</p>
-                  </>
-                )}
-              </div>
-              <div className={styles[`box__${type}_rating_row`]}>
-                {mediaSource.Ratings &&
-                  mediaSource.Ratings[2] !== undefined && (
-                  <>
-                    <img
-                      src={metacriticLogo}
-                      alt="metacritic"
-                      loading="lazy"
-                    />
-                    <p>{mediaSource.Ratings[2].Value.slice(0, 2)}</p>
-                  </>
-                )}
+
+
+              <div className={styles[`box__${type}_rating__row`]}>
+
+                
+                <div className={styles[`box__${type}_rating__rate`]}>
+                  <img src={imdbLogo} alt="imdb" loading="lazy" />
+                  <p>{mediaSource.imdbRating}</p>
+                </div>
+
+                
+                <div className={styles[`box__${type}_rating__rate`]}>
+                  {mediaSource.Ratings?.[1] && (
+                    <>
+                      <img src={rottenLogo} alt="rottentomatoes" loading="lazy" />
+                      <p>{mediaSource.Ratings[1].Value}</p>
+                    </>
+                  )}
+                </div>
+
+
+                <div className={styles[`box__${type}_rating__rate`]}>
+                  {mediaSource.Ratings?.[2] && (
+                    <>
+                      <img
+                        src={metacriticLogo}
+                        alt="metacritic"
+                        loading="lazy"
+                      />
+                      <p>{mediaSource.Ratings[2].Value.slice(0, 2)}</p>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
           </div>

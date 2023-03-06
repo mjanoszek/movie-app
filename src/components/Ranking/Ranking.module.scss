@@ -163,6 +163,9 @@
     &_plot {
       display: flex;
       text-align: center;
+      margin-top: 10px;
+      color: colors.$sub-text;
+      font-size: 12px;
     }
     &__imageContainer {
       img {

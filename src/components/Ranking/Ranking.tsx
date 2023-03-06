@@ -102,14 +102,14 @@ function Ranking({ media, type }: MediaProps) {
               <div className={styles[`box__${type}_rating__row`]}>
                 <div className={styles[`box__${type}_rating__box`]}>
                   <img src={imdbLogo} alt="imdb" loading="lazy"/>
-                  <p>{mediaSource.imdbRating}</p>
+                  <p className={styles[`box__${type}_details`]}>{mediaSource.imdbRating}</p>
                 </div>
 
                 <div className={styles[`box__${type}_rating__box`]}>
                   {mediaSource.Ratings?.[1] && (
                     <>
                       <img src={rottenLogo} alt="rottentomatoes" loading="lazy" />
-                      <p>{mediaSource.Ratings[1].Value}</p>
+                      <p className={styles[`box__${type}_details`]}>{mediaSource.Ratings[1].Value}</p>
                     </>
                   )}
                 </div>
@@ -122,14 +122,14 @@ function Ranking({ media, type }: MediaProps) {
                         alt="metacritic"
                         loading="lazy"
                       />
-                      <p>{mediaSource.Ratings[2].Value.slice(0, 2)}</p>
+                      <p className={styles[`box__${type}_details`]}>{mediaSource.Ratings[2].Value.slice(0, 2)}</p>
                     </>
                   )}
                 </div>
               </div>
             </div>
             <div className={styles[`box__${type}_plot`]}>
-              <p className={styles[`box__${type}_details`]}>{mediaSource.Plot}</p>
+              <p className={styles[`box__${type}_details_plot`]}>{mediaSource.Plot}</p>
             </div>
           </div>
         </div>

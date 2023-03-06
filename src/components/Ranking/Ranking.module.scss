@@ -12,6 +12,9 @@
     background-color: #141414;
     margin: 0 10px 0 10px;
     height: 200px;
+    &Plot {
+      display: none;
+    }
   }
   &__imageContainer {
     position: relative;
@@ -81,9 +84,7 @@
     display: flex;
     gap: 5px;
   }
-  &_plot {
-    display: none;
-  }
+
   &_rating {
     display: flex;
     flex-direction: column;
@@ -151,6 +152,16 @@
 @media (min-width: 630px) {
   .box__movies,
   .box__shows {
+    &_movie,
+    &_show {
+      &Plot {
+        display: flex;
+        text-align: center;
+        margin-top: 10px;
+        color: colors.$sub-text;
+        font-size: 14px;
+      }
+    }
     &_image {
       width: 120px;
       height: 180px;
@@ -160,13 +171,7 @@
       height: 230px;
       width: 600px;
     }
-    &_plot {
-      display: flex;
-      text-align: center;
-      margin-top: 10px;
-      color: colors.$sub-text;
-      font-size: 12px;
-    }
+
     &__imageContainer {
       img {
         width: 140px;

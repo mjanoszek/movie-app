@@ -30,6 +30,8 @@ function Ranking({ media, type }: MediaProps) {
     JSON.parse(localStorage.getItem('favorites') || '[]'),
   );
 
+  const [isExpanded, setisExpanded] = useState(false);
+
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
@@ -46,6 +48,11 @@ function Ranking({ media, type }: MediaProps) {
       );
     }
   };
+
+  const showText = () => setisExpanded(!isExpanded);
+  
+
+ 
 
   if (!media || media.length === 0) {
     return (
@@ -130,12 +137,17 @@ function Ranking({ media, type }: MediaProps) {
                   </div>
                 </div>
               )}
-              
                         
             </div>
-            <div className={type == 'movies' ? styles[`box__${type}_moviePlot`] : styles[`box__${type}_showPlot`]}>
-              <p className={styles[`box__${type}_details_plot`]}>{mediaSource.Plot}</p>
+            <div className={styles[`box__${type}_details_toggleButton`]} >
+              <button type='button' onClick={showText}>{isExpanded ? 'Hide' : 'Show Plot'}</button>
             </div>
+            {isExpanded && (
+              <div className={type == 'movies' ? styles[`box__${type}_moviePlot`] : styles[`box__${type}_showPlot`]}>
+                <p className={styles[`box__${type}_details_plot`]}>{mediaSource.Plot}</p>
+              </div>
+            )}
+            
           </div>
         </div>
       ))}

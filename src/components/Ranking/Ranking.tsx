@@ -13,6 +13,7 @@ interface MediaProps {
     Title: string;
     imdbID: string;
     Year?: string;
+    Plot?: string;
     Runtime?: string;
     Genre?: string;
     imdbRating?: string;
@@ -62,9 +63,9 @@ function Ranking({ media, type }: MediaProps) {
   }
 
   return (
-    
     <div className={styles[`box__${type}`]}>
       {media.map((mediaSource, indx) => (
+        
         <div key={mediaSource.imdbID} className={styles[`box__${type}_${type.slice(0, -1)}`]}>
           <div className={styles[`box__${type}__imageContainer`]}>
             <button type="button" onClick={() => addToFavorite(mediaSource)} aria-label="Add to Watchlist">
@@ -84,14 +85,14 @@ function Ranking({ media, type }: MediaProps) {
             />
           </div>
           <div className={styles[`box__${type}_data`]}>
-            <p>
+            <p className={styles[`box__${type}_title`]}>
               {indx + 1}. {mediaSource.Title}{' '}
-              <span style={{ color: '#b7b7b7' }}>({mediaSource.Year})</span>
+              <span className={styles[`box__${type}_details`]}>({mediaSource.Year})</span>
             </p>
             <div className={styles[`box__${type}_about`]}>
-              <p>{mediaSource.Runtime}</p>
-              <p>|</p>
-              <p>{mediaSource.Genre}</p>
+              <p className={styles[`box__${type}_details`]}>{mediaSource.Runtime}</p>
+              <p className={styles[`box__${type}_details`]}>|</p>
+              <p className={styles[`box__${type}_details`]}>{mediaSource.Genre}</p>
             </div>
             
 
@@ -99,7 +100,6 @@ function Ranking({ media, type }: MediaProps) {
             
             <div className={styles[`box__${type}_rating`]}>
               <div className={styles[`box__${type}_rating__row`]}>
-
                 <div className={styles[`box__${type}_rating__box`]}>
                   <img src={imdbLogo} alt="imdb" loading="lazy"/>
                   <p>{mediaSource.imdbRating}</p>
@@ -126,8 +126,10 @@ function Ranking({ media, type }: MediaProps) {
                     </>
                   )}
                 </div>
-                
               </div>
+            </div>
+            <div className={styles[`box__${type}_plot`]}>
+              <p className={styles[`box__${type}_details`]}>{mediaSource.Plot}</p>
             </div>
           </div>
         </div>

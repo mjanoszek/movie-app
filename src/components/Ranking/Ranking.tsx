@@ -98,18 +98,14 @@ function Ranking({ media, type }: MediaProps) {
 
             
             <div className={styles[`box__${type}_rating`]}>
-
-
               <div className={styles[`box__${type}_rating__row`]}>
 
-                
-                <div className={styles[`box__${type}_rating__rate`]}>
-                  <img src={imdbLogo} alt="imdb" loading="lazy" />
+                <div className={styles[`box__${type}_rating__box`]}>
+                  <img src={imdbLogo} alt="imdb" loading="lazy"/>
                   <p>{mediaSource.imdbRating}</p>
                 </div>
 
-                
-                <div className={styles[`box__${type}_rating__rate`]}>
+                <div className={styles[`box__${type}_rating__box`]}>
                   {mediaSource.Ratings?.[1] && (
                     <>
                       <img src={rottenLogo} alt="rottentomatoes" loading="lazy" />
@@ -118,8 +114,7 @@ function Ranking({ media, type }: MediaProps) {
                   )}
                 </div>
 
-
-                <div className={styles[`box__${type}_rating__rate`]}>
+                <div className={styles[`box__${type}_rating__box`]}>
                   {mediaSource.Ratings?.[2] && (
                     <>
                       <img
@@ -131,6 +126,7 @@ function Ranking({ media, type }: MediaProps) {
                     </>
                   )}
                 </div>
+                
               </div>
             </div>
           </div>

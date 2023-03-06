@@ -79,6 +79,9 @@
   &_details {
     color: colors.$sub-text;
     font-size: 14px;
+    &_toggleButton {
+      display: none;
+    }
   }
   &_about {
     display: flex;
@@ -115,8 +118,8 @@
   }
 }
 @media (min-width: 425px) {
-  .box__movies,
-  .box__shows {
+  .box__shows,
+  .box__movies {
     &_rating {
       display: flex;
       flex-direction: column;
@@ -150,8 +153,8 @@
   }
 }
 @media (min-width: 630px) {
-  .box__movies,
-  .box__shows {
+  .box__shows,
+  .box__movies {
     &_movie,
     &_show {
       &Plot {
@@ -165,6 +168,23 @@
     &_image {
       width: 120px;
       height: 180px;
+    }
+    &_details {
+      &_toggleButton {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        button {
+          padding: .3rem 1rem;
+          background: none;
+          border: 1px solid colors.$text;
+          color: colors.$white;
+          &:hover {
+            background-color: colors.$white;
+            color: colors.$black;
+          }
+        }
+      }
     }
     &_show,
     &_movie {

@@ -114,6 +114,12 @@ function Ranking({ media, type }: MediaProps) {
 
             
             <div className={styles[`box__${type}_rating`]}>
+              {type != 'movies' && (
+                <div className={styles[`box__${type}_details_toggleButton`]} >
+                  <button type='button' onClick={() => showText(indx)}>{isExpanded == indx ? 'Hide Plot' : 'Show Plot'}</button>
+                </div>
+              )}
+              
 
               {type != 'shows' && (
                 <div className={styles[`box__${type}_rating__row`]}>

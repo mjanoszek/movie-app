@@ -30,7 +30,8 @@ function Ranking({ media, type }: MediaProps) {
     JSON.parse(localStorage.getItem('favorites') || '[]'),
   );
 
-  const [isExpanded, setisExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState<number | null>(null);
+  const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -49,7 +50,14 @@ function Ranking({ media, type }: MediaProps) {
     }
   };
 
-  const showText = () => setisExpanded(!isExpanded);
+  const showText = (indx: number) => {
+    if (isExpanded === indx) {
+      setIsExpanded(null);
+      setIsClicked(!isClicked);
+    } else {
+      setIsExpanded(indx);
+    }
+  };
   
 
  
@@ -109,6 +117,13 @@ function Ranking({ media, type }: MediaProps) {
 
               {type != 'shows' && (
                 <div className={styles[`box__${type}_rating__row`]}>
+
+                  <div className={styles[`box__${type}_rating__box`]}>
+                    <div className={styles[`box__${type}_details_toggleButton`]} >
+                      <button type='button' onClick={() => showText(indx)}>{isExpanded == indx ? 'Hide Plot' : 'Show Plot'}</button>
+                    </div>
+                  </div>
+            
                   <div className={styles[`box__${type}_rating__box`]}>
                     <img src={imdbLogo} alt="imdb" loading="lazy"/>
                     <p className={styles[`box__${type}_details`]}>{mediaSource.imdbRating}</p>
@@ -139,10 +154,8 @@ function Ranking({ media, type }: MediaProps) {
               )}
                         
             </div>
-            <div className={styles[`box__${type}_details_toggleButton`]} >
-              <button type='button' onClick={showText}>{isExpanded ? 'Hide' : 'Show Plot'}</button>
-            </div>
-            {isExpanded && (
+        
+            {isExpanded === indx && (
               <div className={type == 'movies' ? styles[`box__${type}_moviePlot`] : styles[`box__${type}_showPlot`]}>
                 <p className={styles[`box__${type}_details_plot`]}>{mediaSource.Plot}</p>
               </div>

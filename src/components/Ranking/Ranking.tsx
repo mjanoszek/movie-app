@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { useMediaQuery } from '@material-ui/core';
 import styles from './Ranking.module.scss';
 import noImage from '../../assets/noimg.png';
 import imdbLogo from '../../assets/IMDB_Logo_2016.svg';
@@ -58,7 +59,9 @@ function Ranking({ media, type }: MediaProps) {
       setIsExpanded(indx);
     }
   };
-  
+
+
+  const matches = useMediaQuery('(max-width:375px)');  
 
  
 
@@ -114,17 +117,13 @@ function Ranking({ media, type }: MediaProps) {
 
             
             <div className={styles[`box__${type}_rating`]}>
-              {type != 'movies' && (
-                <div className={styles[`box__${type}_details_toggleButton`]} >
-                  <button type='button' onClick={() => showText(indx)}>{isExpanded == indx ? 'Hide Plot' : 'Show Plot'}</button>
-                </div>
-              )}
+             
               
 
               {type != 'shows' && (
                 <div className={styles[`box__${type}_rating__row`]}>
 
-                  <div className={styles[`box__${type}_rating__box`]}>
+                  <div className={styles[`box__${type}_rating__box`]} style={{ display: matches ? 'none' : 'block' }}>
                     <div className={styles[`box__${type}_details_toggleButton`]} >
                       <button type='button' onClick={() => showText(indx)}>{isExpanded == indx ? 'Hide Plot' : 'Show Plot'}</button>
                     </div>
@@ -161,7 +160,7 @@ function Ranking({ media, type }: MediaProps) {
                         
             </div>
         
-            {isExpanded === indx && (
+            {(isExpanded === indx || type !== 'movies') && (
               <div className={type == 'movies' ? styles[`box__${type}_moviePlot`] : styles[`box__${type}_showPlot`]}>
                 <p className={styles[`box__${type}_details_plot`]}>{mediaSource.Plot}</p>
               </div>

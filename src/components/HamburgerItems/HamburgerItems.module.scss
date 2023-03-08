@@ -6,12 +6,9 @@
     width: 100%;
     a {
       text-decoration: none;
-      color: colors.$text;
+      color: colors.$text-color;
       font-size: 20px;
       text-decoration: none;
-      &:hover {
-        color: colors.$white;
-      }
       span {
         margin-left: 16px;
       }

@@ -23,12 +23,12 @@
       border-top-left-radius: 3px;
       &:hover {
         background-color: colors.$black;
-        color: colors.$white;
+        color: colors.$text-color;
       }
       .faPlus {
         position: relative;
         top: -5px;
-        color: colors.$white;
+        color: colors.$text-color;
         height: 16px;
       }
     }
@@ -44,7 +44,7 @@
         border-radius: 3px;
       }
       &:hover {
-        border: 1px solid colors.$purple;
+        border: 1px solid colors.$violet;
       }
     }
   }

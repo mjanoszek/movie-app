@@ -9,7 +9,7 @@
   &_movie {
     position: relative;
     display: flex;
-    background-color: #141414;
+    background-color: colors.$dark-navy-blue;
     margin: 0 10px 0 10px;
     height: 200px;
     &Plot {
@@ -40,12 +40,12 @@
       border-top-left-radius: 3px;
       &:hover {
         background-color: colors.$grey;
-        color: colors.$white;
+        color: colors.$text-color;
       }
       .faPlus {
         position: relative;
         top: -5px;
-        color: colors.$white;
+        color: colors.$text-color;
         height: 16px;
       }
     }
@@ -61,12 +61,12 @@
         height: 200px;
       }
       &:hover {
-        border: 1px solid colors.$purple;
+        border: 1px solid colors.$violet;
       }
     }
   }
   &_title {
-    color: colors.$white;
+    color: colors.$text-color;
     font-size: 18px;
   }
   &_data {
@@ -77,7 +77,7 @@
     flex-direction: column;
   }
   &_details {
-    color: colors.$sub-text;
+    color: colors.$text-secondary;
     font-size: 14px;
     &_toggleButton {
       display: none;
@@ -161,7 +161,7 @@
         display: flex;
         text-align: center;
         margin-top: 10px;
-        color: colors.$sub-text;
+        color: colors.$text-secondary;
         font-size: 14px;
       }
     }
@@ -175,12 +175,12 @@
         justify-content: center;
         width: 100%;
         button {
-          padding: .3rem 1rem;
+          padding: 0.3rem 1rem;
           background: none;
-          border: 1px solid colors.$text;
-          color: colors.$white;
+          border: 1px solid colors.$text-secondary;
+          color: colors.$text-color;
           &:hover {
-            background-color: colors.$white;
+            background-color: colors.$text-color;
             color: colors.$black;
           }
         }

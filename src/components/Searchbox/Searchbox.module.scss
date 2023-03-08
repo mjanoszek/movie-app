@@ -5,23 +5,23 @@
     padding: 0.5rem 2rem;
     width: 180px;
     margin: 10px;
-    color: colors.$white;
+    color: colors.$text-color;
     border-radius: 5px;
-    background: none;
+    background-color: colors.$dark-navy-blue;
     outline: none;
-    border: 1px solid colors.$sub-text;
-    transition: 0.5s ease-in-out all;
+    border: 1px solid colors.$light-grey;
+    transition: 0.2s ease-in-out all;
     &:hover {
-      border: 1px solid colors.$white;
+      border: 1px solid colors.$purple-secondary;
     }
-    &:focus {
-      border: 1px solid colors.$white;
+    &::placeholder {
+      color: colors.$text-color;
     }
   }
   svg {
     position: absolute;
     padding: 20px 0 0 20px;
-    color: colors.$sub-text;
+    color: colors.$text-color;
   }
 }
 @media (min-width: 500px) {

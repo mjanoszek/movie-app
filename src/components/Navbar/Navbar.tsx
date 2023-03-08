@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.scss';
@@ -19,8 +19,27 @@ function Navbar({
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const location = useLocation();
 
+
+  const [navbarBackground, setNavbarBackground] = useState('none');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.pageYOffset;
+      if (offset > 0) {
+        setNavbarBackground('#0D1424');
+      } else {
+        setNavbarBackground('transparent');
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
   return (
-    <div className={styles.navbar}>
+    <div
+      style={{ background: navbarBackground }} className={styles.navbar}
+    >
       <div className={styles.navbar__left}>
         <Link to="/">
           <h1>Flicky</h1>

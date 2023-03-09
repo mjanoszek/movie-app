@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import { useMediaQuery } from '@material-ui/core';
+import { useMediaQuery } from 'react-responsive';
 import styles from './Ranking.module.scss';
 import noImage from '../../assets/noimg.png';
 import imdbLogo from '../../assets/IMDB_Logo_2016.svg';
@@ -61,7 +61,9 @@ function Ranking({ media, type }: MediaProps) {
   };
 
 
-  const matches = useMediaQuery('(max-width:375px)');  
+  const isMobile = useMediaQuery({ maxWidth: 630 });
+
+
 
  
 
@@ -123,7 +125,7 @@ function Ranking({ media, type }: MediaProps) {
               {type != 'shows' && (
                 <div className={styles[`box__${type}_rating__row`]}>
 
-                  <div className={styles[`box__${type}_rating__box`]} style={{ display: matches ? 'none' : 'block' }}>
+                  <div className={styles[`box__${type}_rating__box`]} style={{ display: isMobile ? 'none' : 'block' }}>
                     <div className={styles[`box__${type}_details_toggleButton`]} >
                       <button type='button' onClick={() => showText(indx)}>{isExpanded == indx ? 'Hide Plot' : 'Show Plot'}</button>
                     </div>

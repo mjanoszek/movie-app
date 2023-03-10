@@ -109,9 +109,9 @@ function Ranking({ media, type }: MediaProps) {
               {indx + 1}. {mediaSource.Title}{' '}
               <span className={styles[`box__${type}_details`]}>({mediaSource.Year})</span>
             </p>
-            <div className={styles[`box__${type}_about`]}>
+            <div className={styles[`box__${type}_about`]} style={{ flexDirection: isMobile ? 'column' : 'row' }}>
               <p className={styles[`box__${type}_details`]}>{mediaSource.Runtime}</p>
-              <p className={styles[`box__${type}_details`]}>|</p>
+              <p className={styles[`box__${type}_details`]} style={{ display: isMobile ? 'none' : 'block' }}>|</p>
               <p className={styles[`box__${type}_details`]}>{mediaSource.Genre}</p>
             </div>
             
